@@ -43,7 +43,7 @@ public class OneDriveContentHubTransformer implements ContentHubTransformer {
             contentName,
             item.getId(),
             item.getCoreMediaContentType());
-    model.put("title", item.getName());
+    model.put("title", contentName);
 
     ContentHubBlob fileBlob = item.getBlob("file");
     if (fileBlob != null) {
