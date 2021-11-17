@@ -1,14 +1,15 @@
 {
   "name": "@coremedia-labs/studio-client.main.content-hub-adapter-onedrive",
-  "author": "Blueprint",
-  "version": "1.0.5-SNAPSHOT",
+  "version": "2.0.0-SNAPSHOT",
+  "author": "CoreMedia GmbH",
+  "license": "CoreMedia Open Source License",
   "private": true,
   "dependencies": {
-    "@coremedia/studio-client.core-icons": "^2107.3.0-4.1.9",
-    "@coremedia/studio-client.ext.ui-components": "^2107.3.0-4.1.9",
-    "@coremedia/studio-client.main.bpbase-studio-components": "^2107.3.0-4.1.9",
-    "@coremedia/studio-client.main.content-hub-editor-components": "^2107.3.0-4.1.9",
-    "@coremedia/studio-client.main.editor-components": "^2107.3.0-4.1.9",
+    "@coremedia/studio-client.core-icons": "2110.1.0-pr3",
+    "@coremedia/studio-client.ext.ui-components": "2110.1.0-pr3",
+    "@coremedia/studio-client.main.bpbase-studio-components": "2110.1.0-pr3",
+    "@coremedia/studio-client.main.content-hub-editor-components": "2110.1.0-pr3",
+    "@coremedia/studio-client.main.editor-components": "2110.1.0-pr3",
     "@jangaroo/ext-ts": "^1.0.0-alpha",
     "@jangaroo/runtime": "^1.0.0-alpha"
   },
@@ -16,6 +17,7 @@
     "@jangaroo/build": "^1.0.0-alpha",
     "@jangaroo/core": "^1.0.0-alpha",
     "@jangaroo/publish": "^1.0.0-alpha",
+    "@jangaroo/run": "^1.0.0-alpha",
     "eslint": "7.27.0",
     "rimraf": "^3.0.2"
   },
@@ -23,6 +25,8 @@
     "clean": "rimraf ./dist && rimraf ./build",
     "build": "jangaroo build",
     "watch": "jangaroo watch",
+    "start": "jangaroo run",
+    "package": "jangaroo package",
     "publish": "jangaroo publish",
     "lint": "eslint --fix \"src/**/*.ts\""
   },

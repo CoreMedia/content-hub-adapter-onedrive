@@ -23,7 +23,7 @@ const ContentHubOneDrive_properties: ContentHubOneDrive_properties = {
   adapter_type_onedrive_name: "OneDrive",
   adapter_type_onedrive_icon: CoreIcons_properties.type_video,
   item_type_video_name: "Video",
-  item_type_video_icon: CoreIcons_properties.type_video
+  item_type_video_icon: CoreIcons_properties.type_video,
 };
 
 export default ContentHubOneDrive_properties;
