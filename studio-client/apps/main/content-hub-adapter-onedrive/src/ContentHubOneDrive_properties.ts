@@ -1,4 +1,6 @@
 import CoreIcons_properties from "@coremedia/studio-client.core-icons/CoreIcons_properties";
+import icon from "./icons/adapter-icon.svg";
+import SvgIconUtil from "@coremedia/studio-client.cap-base-models/util/SvgIconUtil";
 
 /**
  * Interface values for ResourceBundle "ContentHubOneDrive".
@@ -21,7 +23,7 @@ interface ContentHubOneDrive_properties {
  */
 const ContentHubOneDrive_properties: ContentHubOneDrive_properties = {
   adapter_type_onedrive_name: "OneDrive",
-  adapter_type_onedrive_icon: CoreIcons_properties.type_video,
+  adapter_type_onedrive_icon: SvgIconUtil.getIconStyleClassForSvgIcon(icon),
   item_type_video_name: "Video",
   item_type_video_icon: CoreIcons_properties.type_video,
 };
