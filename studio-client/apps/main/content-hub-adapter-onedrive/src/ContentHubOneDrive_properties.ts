@@ -1,6 +1,6 @@
 import CoreIcons_properties from "@coremedia/studio-client.core-icons/CoreIcons_properties";
 import icon from "./icons/adapter-icon.svg";
-import SvgIconUtil from "@coremedia/studio-client.cap-base-models/util/SvgIconUtil";
+import SvgIconUtil from "@coremedia/studio-client.base-models/util/SvgIconUtil";
 
 /**
  * Interface values for ResourceBundle "ContentHubOneDrive".
