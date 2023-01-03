@@ -1,9 +1,17 @@
 Changelog
 ================================================================================
 
-1.0.0
+2.0.1
 --------------------------------------------------------------------------------
 
 ### General Notes
 
-* Intial release of the plugin for CMCC 11.2110.1 including all features known from latest version of CMCCv10.
+* Update to latest CM11 dependencies
+
+
+2.0.0
+--------------------------------------------------------------------------------
+
+### General Notes
+
+*  Update to CM11
