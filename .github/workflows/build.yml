@@ -11,6 +11,8 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
       - name: Checkout
@@ -149,8 +151,6 @@ jobs:
           if-no-files-found: error
 
       - name: Upload Release Artifacts
-        permissions:
-          contents: write
         if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main'
         uses: softprops/action-gh-release@v1
         with:
