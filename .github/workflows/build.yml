@@ -26,7 +26,7 @@ jobs:
           server-username: PLUGINS_NEXUS_USER
           server-password: PLUGINS_NEXUS_PASSWORD
       - name: Cache Maven Repo
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: ~/.m2
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
@@ -144,7 +144,7 @@ jobs:
           echo "::set-output name=version::${snapshot_version}"
 
       - name: Upload Build Artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: content-hub-adapter-onedrive-${{ steps.output-version.outputs.version }}
           path: target/bundle
