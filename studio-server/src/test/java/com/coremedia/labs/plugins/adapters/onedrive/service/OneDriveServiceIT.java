@@ -1,9 +1,9 @@
 package com.coremedia.labs.plugins.adapters.onedrive.service;
 
-import com.coremedia.labs.plugins.adapters.onedrive.service.OneDriveService;
 import com.microsoft.graph.models.extensions.Drive;
 import com.microsoft.graph.models.extensions.DriveItem;
 import com.microsoft.graph.models.extensions.Site;
+import com.microsoft.graph.models.extensions.ThumbnailSet;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -74,6 +74,14 @@ public class OneDriveServiceIT {
     DriveItem item = testling.getItem(DRIVE_ID, DRIVE_ITEM_ID);
     InputStream downloadStream = testling.getDownloadStream(item);
     assertNotNull(downloadStream);
+  }
+
+  @Test
+  public void testGetThumbnailUrl() throws Exception {
+    DriveItem item = testling.getItem(DRIVE_ID, DRIVE_ITEM_ID);
+    ThumbnailSet thumbnailSet = testling.getThumbnailSet(item);
+    assertNotNull(thumbnailSet);
+    assertNotNull(thumbnailSet.large.url);
   }
 
 }
