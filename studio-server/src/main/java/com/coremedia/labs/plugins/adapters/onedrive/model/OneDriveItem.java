@@ -24,6 +24,7 @@ import java.util.Optional;
 public class OneDriveItem extends BaseFileSystemItem implements Item, DriveItemAdapter {
 
   public static final String CLASSIFIER_PREVIEW = "preview";
+
   private static final int BLOB_SIZE_LIMIT = 10000000;
   private final DriveItem delegate;
   private final OneDriveService oneDriveService;
@@ -87,28 +88,41 @@ public class OneDriveItem extends BaseFileSystemItem implements Item, DriveItemA
   @Nullable
   @Override
   public ContentHubBlob getBlob(String classifier) {
+    ContentHubBlob blob;
     if (CLASSIFIER_PREVIEW.equals(classifier)) {
-      return getPreviewBlob();
+      blob = getPreviewBlob();
+    } else if (ContentHubBlob.THUMBNAIL_BLOB_CLASSIFIER.equals(classifier)) {
+      blob = getThumbnailBlob();
+    } else {
+      blob = new ContentHubDefaultBlob(
+              this,
+              classifier,
+              mimeTypeService.mimeTypeForResourceName(getName()),
+              getDriveItem().size,
+              () -> oneDriveService.getDownloadStream(getDriveItem()),
+              getDriveItem().eTag);
     }
-
-    ContentHubBlob blob = new ContentHubDefaultBlob(
-            this,
-            classifier,
-            mimeTypeService.mimeTypeForResourceName(getName()),
-            getDriveItem().size,
-            () -> oneDriveService.getDownloadStream(getDriveItem()),
-            getDriveItem().eTag);
     return blob;
   }
 
   @Nullable
   public ContentHubBlob getPreviewBlob() {
+    return getBlobFromThumbnailSet(CLASSIFIER_PREVIEW);
+  }
+
+  @Nullable
+  @Override
+  public ContentHubBlob getThumbnailBlob() {
+    return getBlobFromThumbnailSet(ContentHubBlob.THUMBNAIL_BLOB_CLASSIFIER);
+  }
+
+  @Nullable
+  protected ContentHubBlob getBlobFromThumbnailSet(String classifier) {
     return Optional.ofNullable(oneDriveService.getThumbnailSet(getDriveItem()))
             .map(t -> t.large.url)
-            .map(thumbUrl -> new UrlBlobBuilder(this, CLASSIFIER_PREVIEW)
+            .map(thumbUrl -> new UrlBlobBuilder(this, classifier)
                     .withUrl(thumbUrl)
                     .build())
             .orElse(null);
   }
-
 }
