@@ -1,4 +1,4 @@
-![CoreMedia Content Cloud Version](https://img.shields.io/static/v1?message=2506&label=CoreMedia%20Content%20Cloud&style=for-the-badge&labelColor=666666&color=672779 "This badge shows the CoreMedia version this project is compatible with. 
+![CoreMedia Content Cloud Version](https://img.shields.io/static/v1?message=13&label=CoreMedia%20Content%20Cloud&style=for-the-badge&labelColor=666666&color=672779 "This badge shows the CoreMedia version this project is compatible with. 
 Please read the versioning section of the project to see what other CoreMedia versions are supported and how to find them.")
 ![Status](https://img.shields.io/static/v1?message=active&label=Status&style=for-the-badge&labelColor=666666&color=2FAC66 
 "The status badge describes if the project is maintained. Possible values are active and inactive. 
@@ -38,6 +38,31 @@ available only since 2101.
 * **[Issues](https://github.com/CoreMedia/content-hub-adapter-onedrive/issues)**
 
     for known bugs and feature requests
+
+## Development
+
+### Running Integration Tests
+
+The project includes integration tests that require valid OneDrive/Azure AD credentials. 
+For security reasons, credentials are not hardcoded in the tests. To run the integration tests:
+
+1. **Using a properties file** (recommended for local development):
+   ```bash
+   cd studio-server/src/test/resources
+   cp onedrive-test.properties.template onedrive-test.properties
+   # Edit onedrive-test.properties and fill in your credentials
+   ```
+
+2. **Using Maven system properties** (recommended for CI/CD):
+   ```bash
+   mvn test -Donedrive.client.id=YOUR_ID \
+            -Donedrive.client.secret=YOUR_SECRET \
+            -Donedrive.tenant.id=YOUR_TENANT_ID
+   ```
+
+See [studio-server/src/test/resources/README.md](studio-server/src/test/resources/README.md) for detailed configuration instructions.
+
+If no credentials are provided, the integration tests will be automatically skipped.
 
 ## CoreMedia Labs
 

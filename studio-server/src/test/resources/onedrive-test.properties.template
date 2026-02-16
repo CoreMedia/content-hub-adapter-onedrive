@@ -1,0 +1,19 @@
+# OneDrive Integration Test Configuration Template
+# Copy this file to onedrive-test.properties and fill in your actual values
+# DO NOT commit onedrive-test.properties to version control!
+
+# Azure AD Application credentials
+onedrive.client.id=<YOUR_CLIENT_ID>
+onedrive.client.secret=<YOUR_CLIENT_SECRET>
+onedrive.tenant.id=<YOUR_TENANT_ID>
+
+# SharePoint site configuration
+onedrive.sharepoint.site=my.sharepoint.com:/sites/Sample
+onedrive.sharepoint.site.id=my.sharepoint.com,21c06144-5038-4ba3-8b99-115b661f9d09,4393c333-c93a-45e5-aaf7-39cf66c1de1d
+
+# Drive configuration
+onedrive.drive.id=b!RGHAIThQo0uLmRFbZh-dCTPDk0M6yeVFqvc5z2bB3h15UA6_MMe4T46v9u3_EE7S
+
+# Test drive item (example asset)
+onedrive.drive.item.id=01CL5ITZYQXUNCRR266VFJ7GYKWP22GNWF
+

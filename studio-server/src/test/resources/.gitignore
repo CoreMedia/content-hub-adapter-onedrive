@@ -1,0 +1,3 @@
+# Ignore actual test configuration file with credentials
+onedrive-test.properties
+
